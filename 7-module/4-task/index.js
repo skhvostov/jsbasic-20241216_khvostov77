@@ -72,13 +72,6 @@ export default class StepSlider {
       spans[i].classList.remove('slider__step-active');
     }
     spans[value].classList.add('slider__step-active');
-
-    let event = new CustomEvent('slider-change', {
-      detail: value,
-      bubbles: true,
-    });
-    this.elem.dispatchEvent(event);
-
   };
 
   onPointerdown = () => {

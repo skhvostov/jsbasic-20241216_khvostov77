@@ -3,7 +3,7 @@ import createElement from '../../assets/lib/create-element.js';
 export default class CartIcon {
   constructor() {
     this.render();
-    this.initPosition();
+    // this.initPosition();
     this.addEventListeners();
   }
 
@@ -39,7 +39,7 @@ export default class CartIcon {
   }
 
   initPosition() {
-    this.initialTopCoord = this.elem.getBoundingClientRect().top + window.pageYOffset;
+    // this.initialTopCoord = this.elem.getBoundingClientRect().top + window.pageYOffset;
   }
 
   updatePosition() {
@@ -51,6 +51,12 @@ export default class CartIcon {
         left: '',
         zIndex: ''
       });
+
+      return;
+    }
+
+    if (!this.initialTopCoord) { // Это должно проверяться внутри обработчика
+      this.initialTopCoord = this.elem.getBoundingClientRect().top + window.pageYOffset;
     }
 
     let leftIndent = Math.min(
